@@ -16,7 +16,7 @@ export default function Instagram() {
           <div className="instagram-profile">
             <div className="instagram-avatar">📷</div>
             <div className="instagram-info">
-              <h3>@lucascolombo</h3>
+              <h3>@colomboframes</h3>
               <p>Visual Artist • Photographer • Filmmaker</p>
               <p className="memorial-text">A tribute to a passionate artist whose work captured the beauty of life</p>
             </div>

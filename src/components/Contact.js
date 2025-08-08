@@ -40,17 +40,8 @@ export default function Contact() {
           <div className="social-links">
             <h4>Follow My Work</h4>
             <div className="social-icons">
-              <a href="https://instagram.com/lucascolombo" target="_blank" rel="noopener noreferrer">
-                📷 Instagram
-              </a>
-              <a href="https://linkedin.com/in/lucascolombo" target="_blank" rel="noopener noreferrer">
-                💼 LinkedIn
-              </a>
-              <a href="https://behance.net/lucascolombo" target="_blank" rel="noopener noreferrer">
-                🎨 Behance
-              </a>
-              <a href="https://vimeo.com/lucascolombo" target="_blank" rel="noopener noreferrer">
-                🎬 Vimeo
+              <a href="https://instagram.com/colomboframes" target="_blank" rel="noopener noreferrer">
+                � Instagram
               </a>
             </div>
           </div>

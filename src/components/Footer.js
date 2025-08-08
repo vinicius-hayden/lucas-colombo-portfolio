@@ -18,17 +18,8 @@ export default function Footer() {
         
         <div className="footer-right">
           <div className="footer-social">
-            <a href="https://instagram.com/lucascolombo" target="_blank" rel="noopener noreferrer">
-              📷
-            </a>
-            <a href="https://linkedin.com/in/lucascolombo" target="_blank" rel="noopener noreferrer">
-              💼
-            </a>
-            <a href="https://behance.net/lucascolombo" target="_blank" rel="noopener noreferrer">
-              🎨
-            </a>
-            <a href="https://vimeo.com/lucascolombo" target="_blank" rel="noopener noreferrer">
-              🎬
+            <a href="https://instagram.com/colomboframes" target="_blank" rel="noopener noreferrer">
+              �
             </a>
           </div>
         </div>
