@@ -60,9 +60,21 @@ export default function About() {
           <div className="about-education">
             <h4>Education</h4>
             <div className="education-item">
-              <div className="education-institution">
-                <h5>Soka University of America</h5>
-                <p className="education-location">Aliso Viejo, California</p>
+              <div className="education-header">
+                <div className="education-institution">
+                  <h5>Soka University of America</h5>
+                  <p className="education-location">Aliso Viejo, California</p>
+                </div>
+                <div className="education-logo">
+                  <Image
+                    src="/images/logos/soka_university_logo.png"
+                    alt="Soka University of America Logo"
+                    width={80}
+                    height={80}
+                    className="school-logo"
+                    style={{ objectFit: 'contain' }}
+                  />
+                </div>
               </div>
               <div className="education-details">
                 <p className="education-degree">Bachelor of Arts</p>
@@ -70,11 +82,35 @@ export default function About() {
                 <p className="education-year">Class of 2027</p>
               </div>
             </div>
+            <div className="education-item">
+              <div className="education-header">
+                <div className="education-institution">
+                  <h5>Colegio Soka do Brasil</h5>
+                  <p className="education-location">São Paulo, Brazil</p>
+                </div>
+                <div className="education-logo">
+                  <Image
+                    src="/images/logos/colegio-soka.png"
+                    alt="Colegio Soka do Brasil Logo"
+                    width={80}
+                    height={80}
+                    className="school-logo"
+                    style={{ objectFit: 'contain' }}
+                  />
+                </div>
+              </div>
+              <div className="education-details">
+                <p className="education-degree">International Baccalaureate Diploma</p>
+                <p className="education-focus">IB Diploma Program with Outstanding GPA</p>
+                <p className="education-year">Class of 2021</p>
+              </div>
+            </div>
             <div className="education-note">
               <p>
-                At Soka University, Lucas developed his interdisciplinary approach to visual storytelling, 
-                combining traditional artistic techniques with contemporary digital media. The university&apos;s 
-                emphasis on global citizenship and creative expression deeply influenced his artistic vision.
+                Lucas&apos;s educational journey began at Colegio Soka do Brasil, where he excelled in the International 
+                Baccalaureate program, developing critical thinking skills and a global perspective that would later 
+                influence his artistic vision. At Soka University of America, he continued his interdisciplinary 
+                approach to visual storytelling, combining traditional artistic techniques with contemporary digital media.
               </p>
             </div>
           </div>

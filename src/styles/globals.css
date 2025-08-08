@@ -7,7 +7,7 @@
 :root {
   --primary-dark: #0a0a0a;
   --secondary-dark: #1a1a1a;
-  --accent-gold: #d4af37;
+  --accent-gold: #8a5cf5;
   --text-light: #f5f5f5;
   --text-muted: #999;
   --gradient: linear-gradient(135deg, #1e1e1e 0%, #0a0a0a 100%);
@@ -409,17 +409,13 @@ html {
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.3),
-    0 0 0 3px var(--accent-gold),
-    0 0 20px rgba(212, 175, 55, 0.3);
+    0 10px 30px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
 
 .profile-image-container:hover {
   box-shadow: 
-    0 15px 40px rgba(0, 0, 0, 0.4),
-    0 0 0 3px var(--accent-gold),
-    0 0 30px rgba(212, 175, 55, 0.5);
+    0 15px 40px rgba(0, 0, 0, 0.4);
   transform: translateY(-5px);
 }
 
@@ -532,13 +528,23 @@ html {
   position: relative;
 }
 
-.education-item::before {
-  content: "🎓";
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.5rem;
-  opacity: 0.7;
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.education-logo {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.school-logo {
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px;
 }
 
 .education-institution h5 {
@@ -782,14 +788,19 @@ html {
     font-size: 2rem;
   }
   
-  .education-item::before {
-    top: 0.75rem;
-    right: 0.75rem;
-    font-size: 1.2rem;
-  }
-  
   .education-item {
     padding: 1rem;
+  }
+  
+  .education-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .education-logo {
+    margin-left: 0;
   }
   
   .education-note {
