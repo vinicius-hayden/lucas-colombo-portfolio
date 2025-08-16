@@ -13,7 +13,7 @@ export const metadata = {
     siteName: "Lucas Colombo",
     images: [
       {
-        url: "https://lucascolombo.com/images/lucas-profile.jpg",
+        url: "https://raw.githubusercontent.com/vinicius-hayden/lucas-colombo-portfolio/refs/heads/main/public/images/lucas-profile.jpg",
         width: 948,
         height: 702,
         alt: "Preview of Lucas Colombo's Portfolio",
