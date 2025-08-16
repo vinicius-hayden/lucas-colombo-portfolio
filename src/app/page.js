@@ -5,16 +5,37 @@ import Nav from "../components/Nav";
 import Hero from "../components/Hero";
 import About from "../components/About";
 import Portfolio from "../components/Portfolio";
+import Videos from "../components/Videos";
 import Instagram from "../components/Instagram";
 import Footer from "../components/Footer";
 
 export default function Home() {
   useEffect(() => {
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Handle hash navigation from URL (when coming from other pages)
+    const handleHashNavigation = () => {
+      if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+          setTimeout(() => {
+            target.scrollIntoView({ behavior: "smooth" });
+          }, 100);
+        }
+      }
+    };
+
+    // Run on page load
+    handleHashNavigation();
+
+    // Handle hash changes
+    window.addEventListener('hashchange', handleHashNavigation);
+
+    // Smooth scrolling for internal hash links
+    const hashLinks = document.querySelectorAll('a[href^="#"]');
+    hashLinks.forEach(anchor => {
       anchor.addEventListener("click", function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
+        const href = this.getAttribute("href");
+        const target = document.querySelector(href);
         if (target) {
           target.scrollIntoView({ behavior: "smooth" });
         }
@@ -50,6 +71,7 @@ export default function Home() {
     // Cleanup
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('hashchange', handleHashNavigation);
     };
   }, []);
 
@@ -59,6 +81,7 @@ export default function Home() {
       <Hero />
       <About />
       <Portfolio />
+      <Videos />
       <Instagram />
       <Footer />
     </>

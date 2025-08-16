@@ -218,6 +218,111 @@ body {
   transform: translateY(-2px);
 }
 
+/* Hero Slideshow Styles */
+.hero-with-slideshow {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  background-blend-mode: soft-light;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+/* Specific positioning for Lucas hero background to show him better */
+.hero-slide-lucas-bg {
+  background-position: 85% 5%; /* Much closer to the top to show Lucas better */
+}
+
+.hero-slide-bw {
+  background-position: center; /* Keep center positioning for B&W image */
+}
+
+.hero-slide-bubas {
+  background-position: center; /* Center positioning for bubas image */
+}
+
+.hero-slide-lubas {
+  background-position: center; /* Center positioning for lubas image */
+}
+
+.hero-slide-volleyball {
+  background-position: center; /* Center positioning for volleyball image */
+}
+
+.hero-remembering {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+  text-shadow: 
+    1px 1px 3px rgba(0, 0, 0, 0.9),
+    0px 0px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Update styles for slideshow hero content */
+.hero-with-slideshow h1 {
+  color: #ffffff;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.9),
+    0px 0px 10px rgba(0, 0, 0, 0.7);
+  filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.9));
+}
+
+.hero-with-slideshow p {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 
+    1px 1px 3px rgba(0, 0, 0, 0.9),
+    0px 0px 8px rgba(0, 0, 0, 0.6);
+  font-weight: 500;
+}
+
+.hero-with-slideshow .cta-button {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--accent-gold);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(138, 92, 245, 0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.hero-with-slideshow .cta-button:hover {
+  background: var(--accent-gold);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(138, 92, 245, 0.5);
+  transform: translateY(-2px);
+}
+
 /* Section Styles */
 .section {
   padding: 5rem 2rem;
@@ -238,7 +343,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 4rem;
-  align-items: center;
+  align-items: start;
 }
 
 .about-image {
@@ -249,8 +354,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-muted);
-  font-size: 1.1rem;
+  position: sticky;
+  top: 2rem;
+  overflow: hidden;
 }
 
 .about-text {
@@ -275,30 +381,30 @@ body {
 
 .portfolio-item {
   background: var(--secondary-dark);
-  border-radius: 8px;
+  border: 1px solid rgba(138, 92, 245, 0.1);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .portfolio-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(138, 92, 245, 0.2);
+  border-color: rgba(138, 92, 245, 0.3);
 }
 
 .portfolio-image {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
   width: 100%;
   height: 250px;
-  background: var(--primary-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  font-size: 1rem;
 }
 
 .portfolio-content {
   padding: 1.5rem;
+  background: var(--secondary-dark);
 }
 
 .portfolio-content h3 {
@@ -360,9 +466,35 @@ body {
     display: none;
   }
 
+  /* Mobile-specific positioning for hero images */
+  .hero-slide-lucas-bg {
+    background-position: 75% 3%; /* Even closer to top for mobile to show Lucas better */
+  }
+
+  .hero-slide-bw {
+    background-position: center;
+  }
+
+  .hero-slide-bubas {
+    background-position: center;
+  }
+
+  .hero-slide-lubas {
+    background-position: center;
+  }
+
+  .hero-slide-volleyball {
+    background-position: center;
+  }
+
   .about-content {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .about-image {
+    position: static; /* Remove sticky positioning on mobile */
+    height: 300px;
   }
 
   .portfolio-grid {
@@ -405,26 +537,26 @@ html {
 .profile-image-container {
   position: relative;
   width: 100%;
-  height: 400px;
-  border-radius: 15px;
+  height: 100%;
   overflow: hidden;
-  box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
   transition: all 0.3s ease;
+  border-radius: 8px;
 }
 
 .profile-image-container:hover {
-  box-shadow: 
-    0 15px 40px rgba(0, 0, 0, 0.4);
-  transform: translateY(-5px);
+  box-shadow: none;
+  transform: none;
 }
 
 .profile-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   transition: transform 0.3s ease;
+  display: block;
+  border-radius: 8px;
 }
 
 .profile-image:hover {
@@ -443,7 +575,6 @@ html {
   align-items: center;
   justify-content: center;
   font-size: 3rem;
-  border-radius: 12px;
   flex-direction: column;
   gap: 1rem;
   z-index: 1;
@@ -603,18 +734,24 @@ html {
   width: 100%;
   height: 250px;
   object-fit: cover;
-  border-radius: 10px;
   transition: transform 0.3s ease;
+  display: block !important;
 }
 
 .portfolio-item:hover .portfolio-photo {
   transform: scale(1.05);
 }
 
-.portfolio-image {
+.portfolio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portfolio-image-wrapper {
   overflow: hidden;
-  border-radius: 10px;
   margin-bottom: 1rem;
+  position: relative;
 }
 
 .portfolio-meta {
@@ -641,10 +778,284 @@ html {
   font-size: 1.5rem;
   width: 100%;
   height: 200px;
-  border-radius: 10px;
 }
 
-/* Enhanced Instagram Section */
+/* Portfolio Tabs */
+.portfolio-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(138, 92, 245, 0.2);
+  padding-bottom: 1rem;
+}
+
+.portfolio-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.portfolio-tab:hover {
+  color: var(--text-light);
+  background: rgba(138, 92, 245, 0.1);
+}
+
+.portfolio-tab.active {
+  color: var(--accent-gold);
+  background: rgba(138, 92, 245, 0.15);
+}
+
+.portfolio-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 3px;
+  background: var(--accent-gold);
+  border-radius: 50%;
+}
+
+.portfolio-tab svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Video Portfolio Styles */
+.video-item {
+  background: var(--secondary-dark);
+  border: 1px solid rgba(138, 92, 245, 0.2);
+  transition: all 0.3s ease;
+}
+
+.video-item:hover {
+  border-color: rgba(138, 92, 245, 0.4);
+  box-shadow: 0 10px 30px rgba(138, 92, 245, 0.15);
+}
+
+.video-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.portfolio-video {
+  width: 100%;
+  height: 300px;
+  background: #000;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+}
+
+.portfolio-video-embed {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Ensure photo overlays work correctly */
+.portfolio-image .portfolio-overlay {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.portfolio-image:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+/* Mobile responsive for portfolio tabs */
+@media (max-width: 768px) {
+  .portfolio-tabs {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .portfolio-tab {
+    width: 100%;
+    max-width: 200px;
+    justify-content: center;
+  }
+
+  .portfolio-video {
+    height: 250px;
+  }
+}
+
+/* Videos Section */
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.video-card {
+  display: block;
+  background: var(--secondary-dark);
+  border: 1px solid rgba(138, 92, 245, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(138, 92, 245, 0.15);
+  border-color: rgba(138, 92, 245, 0.4);
+}
+
+.video-thumbnail {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  background: var(--secondary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video-thumbnail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.video-card:hover .video-thumbnail-image {
+  transform: scale(1.05);
+}
+
+.video-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  padding: 12px;
+  backdrop-filter: blur(5px);
+}
+
+.video-card:hover .video-play-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+  background: rgba(138, 92, 245, 0.8);
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.video-card:hover .video-overlay {
+  opacity: 1;
+}
+
+.video-overlay span {
+  color: white;
+  font-weight: 500;
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.video-content {
+  padding: 1.5rem;
+}
+
+.video-content h3 {
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.video-content p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.video-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.video-tag {
+  display: inline-block;
+  background: var(--accent-gold);
+  color: var(--primary-dark);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.video-date {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Mobile responsive for videos */
+@media (max-width: 768px) {
+  .videos-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .video-thumbnail {
+    height: 200px;
+  }
+
+  .video-content {
+    padding: 1rem;
+  }
+
+  .video-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
 .instagram-content {
   max-width: 800px;
   margin: 0 auto;
@@ -692,6 +1103,38 @@ html {
   margin-bottom: 0 !important;
 }
 
+.instagram-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.instagram-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(240, 148, 51, 0.3);
+}
+
+.instagram-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(240, 148, 51, 0.4);
+  background: linear-gradient(45deg, #e6683c, #dc2743, #cc2366, #bc1888, #f09433);
+}
+
+.instagram-link svg {
+  flex-shrink: 0;
+}
+
 .instagram-follow-btn {
   background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
   color: white;
@@ -736,6 +1179,18 @@ html {
   justify-content: center;
   font-size: 1.5rem;
   color: var(--text-muted);
+  overflow: hidden;
+}
+
+.remembering-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.instagram-post:hover .remembering-photo {
+  transform: scale(1.1);
 }
 
 .instagram-post-overlay {
@@ -748,10 +1203,32 @@ html {
   padding: 1rem;
   transform: translateY(100%);
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .instagram-post:hover .instagram-post-overlay {
   transform: translateY(0);
+}
+
+.overlay-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.overlay-content svg {
+  width: 24px;
+  height: 24px;
+}
+
+.overlay-content span {
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .instagram-footer {
@@ -768,6 +1245,16 @@ html {
   
   .instagram-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .instagram-links {
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  
+  .instagram-link {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
   }
   
   .about-skills ul {
@@ -1056,5 +1543,484 @@ html {
   
   .footer-nav {
     align-items: center;
+  }
+}
+
+/* Who Is Lucas Page */
+.who-is-lucas-section {
+  background: var(--primary-dark);
+  padding: 8rem 2rem 6rem;
+  margin-top: 80px; /* Account for fixed navigation */
+}
+
+.who-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.lucas-category {
+  margin-bottom: 5rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.category-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.category-title {
+  font-size: 2.2rem;
+  color: var(--accent-gold);
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+}
+
+.category-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.memories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.memory-card {
+  background: var(--secondary-dark);
+  border: 1px solid rgba(138, 92, 245, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.memory-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-gold), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.memory-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(138, 92, 245, 0.15);
+}
+
+.memory-card:hover::before {
+  opacity: 1;
+}
+
+.memory-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.memory-card h4 {
+  color: var(--accent-gold);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.memory-card p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.memory-quote {
+  color: var(--accent-gold);
+  font-style: italic;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(138, 92, 245, 0.1);
+  border-radius: 8px;
+  border-left: 3px solid var(--accent-gold);
+  font-weight: 500;
+}
+
+.memorial-conclusion {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 3rem 2rem;
+  background: var(--secondary-dark);
+  border-radius: 20px;
+  border: 1px solid rgba(138, 92, 245, 0.2);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.conclusion-content h3 {
+  color: var(--accent-gold);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+.conclusion-content p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.memorial-signature {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(138, 92, 245, 0.2);
+}
+
+.memorial-signature p {
+  color: var(--accent-gold);
+  font-style: italic;
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Mobile responsiveness for Who Is Lucas page */
+@media (max-width: 768px) {
+  .who-is-lucas-section {
+    padding: 4rem 1rem;
+  }
+  
+  .lucas-category {
+    margin-bottom: 3rem;
+  }
+  
+  .memories-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .memory-card {
+    padding: 1.5rem;
+  }
+  
+  .category-title {
+    font-size: 1.8rem;
+  }
+  
+  .who-intro {
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
+  
+  .memorial-conclusion {
+    padding: 2rem 1.5rem;
+    margin-top: 3rem;
+  }
+  
+  .conclusion-content h3 {
+    font-size: 1.6rem;
+  }
+  
+  .conclusion-content p {
+    font-size: 1rem;
+  }
+}
+
+/* Portfolio Hover Overlay */
+.portfolio-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-image:hover {
+  transform: scale(1.02);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-image:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  text-align: center;
+}
+
+.portfolio-overlay-content svg {
+  width: 48px;
+  height: 48px;
+}
+
+.portfolio-overlay-content span {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Media Viewer */
+.media-viewer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+
+.media-viewer-container {
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+  max-width: 1200px;
+  max-height: 800px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(10, 10, 10, 0.9);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(138, 92, 245, 0.2);
+}
+
+.media-viewer-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-viewer-close:hover {
+  background: rgba(138, 92, 245, 0.8);
+}
+
+.media-viewer-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  color: white;
+  padding: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-viewer-nav:hover {
+  background: rgba(138, 92, 245, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.media-viewer-prev {
+  left: 1rem;
+}
+
+.media-viewer-next {
+  right: 1rem;
+}
+
+.media-viewer-image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.media-viewer-image {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.media-viewer-info {
+  padding: 1.5rem 2rem;
+  background: rgba(26, 26, 26, 0.9);
+  border-top: 1px solid rgba(138, 92, 245, 0.2);
+}
+
+.media-viewer-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+}
+
+.media-viewer-description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.media-viewer-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.media-viewer-category {
+  background: var(--accent-gold);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.media-viewer-date {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.media-viewer-counter {
+  margin-left: auto;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.media-viewer-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: rgba(10, 10, 10, 0.9);
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-gold) transparent;
+}
+
+.media-viewer-thumbnails::-webkit-scrollbar {
+  height: 4px;
+}
+
+.media-viewer-thumbnails::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.media-viewer-thumbnails::-webkit-scrollbar-thumb {
+  background: var(--accent-gold);
+  border-radius: 2px;
+}
+
+.media-viewer-thumbnail {
+  flex-shrink: 0;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: none;
+  padding: 0;
+}
+
+.media-viewer-thumbnail:hover {
+  border-color: rgba(138, 92, 245, 0.5);
+  transform: scale(1.05);
+}
+
+.media-viewer-thumbnail.active {
+  border-color: var(--accent-gold);
+}
+
+.media-viewer-thumbnail img {
+  display: block;
+  width: 60px;
+  height: 45px;
+  object-fit: cover;
+}
+
+/* Mobile Responsive for Media Viewer */
+@media (max-width: 768px) {
+  .media-viewer-container {
+    width: 95vw;
+    height: 95vh;
+  }
+
+  .media-viewer-image-container {
+    padding: 1rem;
+  }
+
+  .media-viewer-info {
+    padding: 1rem;
+  }
+
+  .media-viewer-title {
+    font-size: 1.25rem;
+  }
+
+  .media-viewer-nav {
+    padding: 0.75rem;
+  }
+
+  .media-viewer-prev {
+    left: 0.5rem;
+  }
+
+  .media-viewer-next {
+    right: 0.5rem;
+  }
+
+  .media-viewer-thumbnails {
+    padding: 0.75rem 1rem;
+  }
+
+  .media-viewer-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .media-viewer-counter {
+    margin-left: 0;
   }
 }

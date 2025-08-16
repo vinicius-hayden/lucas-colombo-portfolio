@@ -1,12 +1,14 @@
+import Link from 'next/link';
+
 export default function Nav() {
   return (
     <nav className="nav">
       <div className="nav-container">
-        <a href="#hero" className="logo">Lucas Colombo</a>
+        <Link href="/" className="logo">Lucas Colombo</Link>
         <ul className="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#instagram">Instagram</a></li>
+          <li><Link href="/#about">About</Link></li>
+          <li><Link href="/#portfolio">Portfolio</Link></li>
+          <li><Link href="/#instagram">Instagram</Link></li>
         </ul>
       </div>
     </nav>

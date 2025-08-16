@@ -43,8 +43,6 @@ export default function About() {
           <p>
             Based between São Paulo and Southern California, Lucas developed a distinctive
             aesthetic that blended documentary photography with artistic expression.
-            His work has been featured in international galleries and publications,
-            earning recognition for its unique perspective on modern life.
           </p>
           <div className="about-skills">
             <h4>Specialties</h4>
@@ -53,7 +51,6 @@ export default function About() {
               <li>Portrait Photography</li>
               <li>Short Film Production</li>
               <li>Visual Storytelling</li>
-              <li>Commercial Photography</li>
             </ul>
           </div>
           
@@ -78,7 +75,7 @@ export default function About() {
               </div>
               <div className="education-details">
                 <p className="education-degree">Bachelor of Arts</p>
-                <p className="education-focus">Liberal Arts with focus on Visual Arts & Media Studies</p>
+                <p className="education-focus">Liberal Arts with focus on Humanities</p>
                 <p className="education-year">Class of 2027</p>
               </div>
             </div>
