@@ -99,7 +99,16 @@ export default function Instagram() {
         <div className="instagram-content fade-in">
           <div className="instagram-header">
             <div className="instagram-profile">
-              <div className="instagram-avatar">📷</div>
+              <div className="instagram-avatar">
+                <Image
+                  src="/images/lucas-profile-picture-instagram.jpg"
+                  alt="Lucas Colombo Profile Picture"
+                  width={80}
+                  height={80}
+                  className="instagram-profile-pic"
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
               <div className="instagram-info">
                 <h3>@colomboframes</h3>
                 <p>Visual Artist • Photographer • Filmmaker</p>

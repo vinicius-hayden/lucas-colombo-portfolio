@@ -1072,6 +1072,8 @@ html {
   justify-content: center;
   gap: 2rem;
   margin-bottom: 2rem;
+  flex-direction: column;
+  text-align: center;
 }
 
 .instagram-avatar {
@@ -1083,17 +1085,28 @@ html {
   align-items: center;
   justify-content: center;
   font-size: 2rem;
+  overflow: hidden;
+  border: 3px solid var(--accent-gold);
+  box-shadow: 0 4px 12px rgba(138, 92, 245, 0.3);
+}
+
+.instagram-profile-pic {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
 .instagram-info h3 {
   color: var(--accent-gold);
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .instagram-info p {
   color: var(--text-muted);
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .memorial-text {
@@ -1101,6 +1114,7 @@ html {
   font-style: italic;
   font-size: 1.1rem;
   margin-bottom: 0 !important;
+  text-align: center;
 }
 
 .instagram-links {
@@ -1108,6 +1122,7 @@ html {
   gap: 1rem;
   margin-top: 1.5rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .instagram-link {

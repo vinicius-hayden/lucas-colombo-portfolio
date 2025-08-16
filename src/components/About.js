@@ -97,7 +97,7 @@ export default function About() {
                 </div>
               </div>
               <div className="education-details">
-                <p className="education-degree">International Baccalaureate Diploma</p>
+                <p className="education-degree">High School with International Baccalaureate Diploma</p>
                 <p className="education-focus">IB Diploma Program with Outstanding GPA</p>
                 <p className="education-year">Class of 2021</p>
               </div>
